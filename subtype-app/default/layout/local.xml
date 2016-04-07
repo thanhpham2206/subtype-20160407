@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="root">
+            <remove name="breadcrumbs" />
+        </reference>
+        <reference name="head" before="">
+            <!--Adding JS Files Styles-->
+            <action method="addItem"><type>skin_js</type><name>js/fotorama.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/mysearch-items.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/subtype.js</name><params/></action>
+
+
+            <!--Adding CSS Files Styles-->
+            <action method="addCss"><stylesheet>css/font-awesome.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/bootstrapcdn.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/fotorama.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/element.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/site.css</stylesheet><params/></action>
+        </reference>
+        <reference name="header">
+            <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+        </reference>
+        <reference name="footer">
+            <remove name="footer_currency" />
+            <remove name="footer_links" />
+            <remove name="footer_links2" />
+            <remove name="cms_footer_links" />
+            <remove name="cms_footer_links_sm" />
+            <block type="cms/block" name="footer_menu">
+                <action method="setBlockId"><block_is>footer_menu</block_is></action>
+            </block>
+            <block type="cms/block" name="footer-widget-wrapper">
+                <action method="setBlockId"><block_is>footer-widget-wrapper</block_is></action>
+            </block>
+        </reference>
+        <reference name="footer.newsletter">
+            <block type="cms/block" name="footer-title-content" as="footer-title-content">
+                <action method="setBlockId"><block_is>footer-title-content</block_is></action>
+            </block>
+        </reference>
+        <remove name="breadcrumbs" />
+    </default>
+    <catalog_category_layered >
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="category.products">
+            <block type="catalog/layer_view" name="catalog.leftnav" template="catalog/layer/view.phtml"/>
+        </reference>
+        <remove name="" />
+    </catalog_category_layered>
+</layout>
